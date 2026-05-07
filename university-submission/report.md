@@ -31,6 +31,8 @@ The dataset consists of two sources:
 | `train_soundscapes_labels.csv` | Labeled 5s windows from soundscapes | 1,478 windows |
 | `taxonomy.csv` | Full list of species to predict | 234 species |
 
+![Dataset Overview](figures/data.png)
+
 Key facts from exploratory analysis:
 
 - **206 of 234 species** have labeled training clips. The remaining 28 (mostly insects
@@ -46,6 +48,8 @@ Key facts from exploratory analysis:
 ---
 
 ## 3. Pre-Processing
+
+![Audio Sample -- Waveform, Mel Spectrogram, MFCCs](figures/spectrogram.png)
 
 **Audio loading**: Each training clip is center-cropped to 5 seconds. If shorter than
 5 seconds, it is zero-padded to reach the target length. Silent clips (max absolute
@@ -181,6 +185,8 @@ is fixed at 0.
 | Logistic Regression | 0.7258 | 43.4s |
 | Linear SVM | 0.7087 | 265.8s |
 
+![Classifier Comparison and RF Feature Importances](figures/classifier_comparison.png)
+
 ### 5-fold cross-validation -- Logistic Regression
 
 | Fold | Detection Score | Windows | Species scored |
@@ -191,6 +197,8 @@ is fixed at 0.
 | 4 | 0.7251 | 292 | 44 |
 | 5 | 0.8290 | 298 | 35 |
 | **Mean** | **0.7912 +/- 0.0448** | | |
+
+![5-Fold Cross-Validation Results](figures/cv_folds.png)
 
 ### Top-5 features (Random Forest importance)
 
